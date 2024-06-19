@@ -1,0 +1,150 @@
+:root {
+    --primary-color: #b43737;
+    --font-size-base: 16px;
+    --font-family-base: Arial, sans-serif;
+}
+
+header {
+    display: flex;
+    width: 100%;
+    height: 100px;
+    justify-content: center;
+    background-color: #f8f9fa;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 3em;
+    margin: 1em 5em;
+    font-size: 23px;
+    font-weight: normal;
+}
+
+a:hover {
+    color: rgb(254, 22, 22);
+}
+
+.container {
+    padding-left: 20px;
+}
+
+.modal {
+    padding-left: 20px;
+}
+
+.filter-condition {
+    margin-top: 1em;
+    margin-left: 1em;
+    color: var(--secondary-color);
+}
+
+.search {
+    display: flex;
+    width: 400px;
+    height: 30px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+img {
+    float: left;
+    width: 260px;
+    height: 260px;
+    object-fit: center;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 0.5em;
+    margin: 2em 0.5em;
+}
+
+.product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--primary-color);
+    border: 1px solid #a6a6a6;
+
+}
+
+.about-section {
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.about-section h2 {
+    color: #343a40;
+    margin-bottom: 15px;
+}
+
+.about-section p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.about-section ul {
+    list-style-type: none;
+    padding: 0;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.about-section ul li {
+    margin-bottom: 10px;
+}
+
+.about-section ul li strong {
+    color: var(--primary-color);
+}
+
+form {
+    display: grid;
+    grid-gap: 10px;
+}
+
+label {
+    font-size: medium;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 70%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+a {
+    color: rgb(20, 4, 107);
+}
+
+
+button {
+    background-color: rgb(82, 42, 42);
+    height: 30px;
+    width: 200px;
+    color: white;
+
+    padding-top: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    margin-left: 0px;
+}
