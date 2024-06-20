@@ -1,5 +1,6 @@
 const itemsGrid = document.querySelector('.items-grid');
-const selectElement = document.getElementById('select');
+const selectPrice = document.getElementById('select-price');
+const selectAlbum = document.getElementById('select-album');
 const searchButton = document.getElementById('search-button');
 const searchInput = document.getElementById('search-input');
 
@@ -7,79 +8,82 @@ let items = [
     {
         id: 1,
         band: 'PRETENDERS',
-        song: 'LERNING TO CRAWL',
+        album: 'LERNING TO CRAWL',
         genre: 'rock',
         price: 21.99,
+        tag: 'pretendl1',
     },
     {
         id: 2,
-        band: 'AC/DC',
-        song: 'BALLBREAKER',
-        genre: 'hard rock',
-        price: 19.99,
+        band: 'BON JOVI',
+        album: 'FOREVER ',
+        genre: 'rock',
+        price: 29.99,
+        tag: 'bozovi',
     },
     {
         id: 3,
-        band: 'BON JOVI',
-        song: 'FOREVER ',
-        genre: 'rock',
-        price: 29.99,
+        band: 'TWENTY ONE PILOTS',
+        album: 'CLANCY',
+        genre: 'alternative rock',
+        price: 27.99,
+        tag: 'klenlpb',
     },
     {
         id: 4,
-        band: 'TWENTY ONE PILOTS',
-        song: 'CLANCY',
-        genre: 'alternative rock',
-        price: 27.99,
+        band: 'DJ SNEAK',
+        album: 'GALACTIC FUNK',
+        genre: 'house',
+        price: 16.99,
+        tag: 'dj-sneak-galactic-funk-ep',
     },
     {
         id: 5,
-        band: 'DJ SNEAK',
-        song: 'GALACTIC FUNK',
-        genre: 'house',
-        price: 16.99,
+        band: 'AC/DC',
+        album: 'BALLBREAKER',
+        genre: 'hard rock',
+        price: 19.99,
+        tag: 'ballbreaker',
     },
     {
         id: 6,
-        band: 'AC/DC',
-        song: 'BALLBREAKER',
-        genre: 'hard rock',
+        band: 'DIO',
+        album: 'LOCK UP THE WOLVES',
+        genre: 'heavy metal',
         price: 19.99,
+        tag: '2-._SL1200_-600x600',
     },
     {
         id: 7,
-        band: 'DIO',
-        song: 'LOCK UP THE WOLVES',
-        genre: 'heavy metal',
-        price: 19.99,
+        band: '2PAC',
+        album: 'ALL EYEZ ON ME',
+        genre: 'hip hop/rap',
+        price: 39.99,
+        tag: 'R-11775641-1526122636-9482',
     },
     {
         id: 8,
-        band: '2PAC',
-        song: 'ALL EYEZ ON ME',
+        band: '50 CENT',
+        album: 'GET RICH OR DIE TRYIN’',
         genre: 'hip hop/rap',
-        price: 39.99,
+        price: 41.99,
+        tag: '50C-600x600',
     },
     {
         id: 9,
-        band: '50 CENT',
-        song: 'GET RICH OR DIE TRYIN’',
-        genre: 'hip hop/rap',
-        price: 41.99,
+        band: 'ABBA',
+        album: 'ALBUM',
+        genre: 'pop',
+        price: 24.99,
+        tag: 'abaalbum-600x600',
     },
     {
         id: 10,
-        band: 'ABBA',
-        song: 'ALBUM',
-        genre: 'pop',
-        price: 24.99,
-    },
-    {
-        id: 11,
         band: 'AC/DC',
-        song: '’74 JAILBREAK',
+        album: '’74 JAILBREAK',
         genre: 'hard rock',
         price: 19.99,
+        tag: 'ac-7',
     },
 ]
 
@@ -89,22 +93,25 @@ function fillItemsGrid() {
         for (const item of items) {
             let itemElement = document.createElement('div');
             itemElement.classList.add('item');
+            let imagePath = `../image/${item.tag}.jpg`;
+            console.log(`Image path for ${item.album}: ${imagePath}`); // Log the image path
             itemElement.innerHTML = `
-                <img src="../images/${item.tag}.jpg" alt="${item.name}">
-                <h1>${item.name}</h1>
+                <img src="../image/${item.tag}.jpg" alt="${item.album}">
+                <h1>${item.album}</h1>
                 <p>${item.price} €</p>`;
             itemsGrid.appendChild(itemElement);
         }
     }
 }
 
+
 function sortByAlphabeticalAscending() {
-    items.sort((a, b) => a.name.localeCompare(b.name));
+    items.sort((a, b) => a.album.localeCompare(b.album));
     updateItemsGrid();
 }
 
 function sortByAlphabeticalDescending() {
-    items.sort((a, b) => b.name.localeCompare(a.name));
+    items.sort((a, b) => b.album.localeCompare(a.album));
     updateItemsGrid();
 }
 
@@ -118,13 +125,18 @@ function sortByPriceDescending(items) {
     updateItemsGrid();
 }
 
+function updateItemsGrid() {
+    itemsGrid.innerHTML = '';
+    fillItemsGrid();
+}
+
 let originalItems = [...items];
 
 function resetItemsGrid() {
     items = [...originalItems];
     updateItemsGrid();
     if (selectedSortOption !== '') {
-        sortItemsAndUpdateGrid();
+        sortItemsAlphabeticalAndUpdateGrid();
     } else {
         updateItemsGrid();
     }
@@ -137,7 +149,7 @@ function searchItems() {
         return;
     }
 
-    const filteredItems = items.filter(item => item.name.toLowerCase().includes(searchInputValue));
+    const filteredItems = items.filter(item => item.album.toLowerCase().includes(searchInputValue));
     items = filteredItems;
     updateItemsGrid();
 
@@ -151,14 +163,10 @@ function searchItems() {
 
 let selectedSortOption = '';
 
-function sortItemsAndUpdateGrid() {
-    const selectedValue = selectElement.value;
+function sortItemsAlphabeticalAndUpdateGrid() {
+    const selectedValue = selectAlbum.value;
     selectedSortOption = selectedValue;
-    if (selectedValue === 'LowToHigh') {
-        sortByPriceAscending(items);
-    } else if (selectedValue === 'HighToLow') {
-        sortByPriceDescending(items);
-    } else if (selectedValue === 'AtoZ') {
+    if (selectedValue === 'AtoZ') {
         sortByAlphabeticalAscending();
     } else if (selectedValue === 'ZtoA') {
         sortByAlphabeticalDescending();
@@ -167,14 +175,30 @@ function sortItemsAndUpdateGrid() {
     }
 }
 
+function sortItemsByPriceAndUpdateGrid() {
+    const selectedValue = selectPrice.value;
+    selectedSortOption = selectedValue;
+    if (selectedValue === 'LowToHigh') {
+        sortByPriceAscending(items);
+    } else if (selectedValue === 'HighToLow') {
+        sortByPriceDescending(items);
+    } else {
+        resetItemsGrid();
+    }
+}
+
+
 fillItemsGrid();
 
 if (searchButton) {
     searchButton.addEventListener('click', searchItems);
 }
 
-if (selectElement) {
-    selectElement.addEventListener('change', sortItemsAndUpdateGrid);
+if (selectAlbum) {
+    selectAlbum.addEventListener('change', sortItemsAlphabeticalAndUpdateGrid);
+}
+if (selectPrice) {
+    selectPrice.addEventListener('change', sortItemsByPriceAndUpdateGrid);
 }
 
 if (searchInput) {
