@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/style.css">
+    <title>Vinyl shop</title>
+</head>
+
+<header>
+    <h1>VINYL SHOP</h1>
+    <nav>
+        <div class="main">
+            <a href="home.html">STORE</a>
+            <a href="reviews.html">REVIEWS</a>
+            <a href="about.html">ABOUT</a>
+            <a href="contact.html">CONTACT</a>
+            <a href="" class="main-active">STORAGE</a>
+        </div>
+
+    </nav>
+</header>
+
+
+<body>
+
+    <div class="content">
+        <div class="form-container">
+            <h2>Add New Albm</h2>
+            <form>
+                <label for="album-name">Album Name:</label>
+                <input type="text" id="album-name" name="album-name" required />
+                <br />
+                <label for="band-name">Band Name:</label>
+                <input type="text" id="band-name" name="band-name" required />
+                <br />
+
+                <label for="type">Type:</label>
+                <select id="type" name="type" required>
+                    <option value="LP">Long PLay</option>
+                    <option value="EP">Extended Play</option>
+                    <option value="SINGLE">Single</option>
+                </select>
+                <br />
+                <button type="submit">Add Album</button>
+            </form>
+        </div>
+
+        <div class="albums-list">
+            <h2>Albums List</h2>
+        </div>
+    </div>
+
+    <script src="javascript/albumCRUD.js"></script>
+
+</body>
