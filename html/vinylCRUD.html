@@ -27,15 +27,20 @@
 
     <div class="content">
         <div class="form-container">
-            <h2>Add New Albm</h2>
+            <h2>Add New Vinyl</h2>
             <form>
-                <label for="album-name">Album Name:</label>
+                <label for="vinyl-name">Vinyl Name:</label>
                 <input type="text" id="album-name" name="album-name" required />
                 <br />
                 <label for="band-name">Band Name:</label>
                 <input type="text" id="band-name" name="band-name" required />
                 <br />
-
+                <label for="genre">Genre:</label>
+                <input type="text" id="genre" name="genre" required />
+                <br />
+                <label for="photo-link">Photo Link:</label>
+                <input type="url" id="photo-link" name="photo-link" required />
+                <br />
                 <label for="type">Type:</label>
                 <select id="type" name="type" required>
                     <option value="LP">Long PLay</option>
@@ -43,15 +48,17 @@
                     <option value="SINGLE">Single</option>
                 </select>
                 <br />
-                <button type="submit">Add Album</button>
+                <button type="submit">Add Vinyl</button>
             </form>
         </div>
 
-        <div class="albums-list">
-            <h2>Albums List</h2>
+        <div class="vinyl-list">
+            <h2>Vinyls List</h2>
         </div>
     </div>
 
-    <script src="javascript/albumCRUD.js"></script>
+    <div id="vinyls-container" class="reviews-grid"></div>
+
+    <script src="../javascript/vinylCRUD.js"></script>
 
 </body>
