@@ -59,7 +59,7 @@ let items = [
         album: 'ALL EYEZ ON ME',
         genre: 'hip hop/rap',
         price: 39.99,
-        tag: 'R-11775641-1526122636-9482',
+        tag: 'R-11775641-1526122636-9482.jpeg',
     },
     {
         id: 8,
@@ -83,7 +83,7 @@ let items = [
         album: '’74 JAILBREAK',
         genre: 'hard rock',
         price: 19.99,
-        tag: 'ac-7',
+        tag: 'ac-7.jpeg',
     },
 ]
 
