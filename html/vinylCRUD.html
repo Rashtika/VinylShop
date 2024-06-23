@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style/style.css">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="../image/favicon-32x32.png">
     <title>Vinyl shop</title>
 </head>
 
@@ -28,7 +30,7 @@
     <div class="content">
         <div class="form-container">
             <h2>Add New Vinyl</h2>
-            <form>
+            <form id="submitForm">
                 <label for="vinyl-name">Vinyl Name:</label>
                 <input type="text" id="album-name" name="album-name" required />
                 <br />
@@ -48,7 +50,10 @@
                     <option value="SINGLE">Single</option>
                 </select>
                 <br />
-                <button type="submit">Add Vinyl</button>
+
+
+                <button id="addVinylButton" type="submit">Add Vinyl</button>
+
             </form>
         </div>
 
