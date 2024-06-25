@@ -1,0 +1,121 @@
+.content {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.form-container {
+    background-color: #5e8864;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    flex: 1;
+    margin-right: 20px;
+}
+
+.form-container h2 {
+    color: white;
+    margin-bottom: 20px;
+}
+
+.form-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-container form label {
+    margin: 10px 0 5px 0;
+    color: white;
+}
+
+.form-container form input {
+    padding: 10px;
+    width: 80%;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+}
+
+.form-container form button {
+    padding: 10px 20px;
+    background-color: #014c98;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form-container form button:hover {
+    background-color: #012f68;
+}
+
+.vinyls-list {
+    flex: 2;
+    padding: 20px;
+}
+
+.vinyls-list h2 {
+    text-align: center;
+    color: #014c98;
+    margin-bottom: 20px;
+}
+
+.vinyl {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    border: 2px solid #014c98;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.vinyl img {
+    max-width: 100px;
+    height: auto;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.vinyl-info h3 {
+    margin: 0;
+    color: #014c98;
+}
+
+.vinyl-info p {
+    margin: 5px 0 0 0;
+    color: #666;
+}
+
+.vinyl-actions {
+    display: flex;
+    gap: 5px;
+    margin-left: auto;
+}
+
+.btn-update,
+.btn-delete {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.btn-update {
+    background-color: #4caf50;
+    color: white;
+}
+
+.btn-delete {
+    background-color: #f44336;
+    color: white;
+}
+
+form input,
+form select {
+    margin-bottom: 12px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
